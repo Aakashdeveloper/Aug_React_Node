@@ -1,0 +1,5 @@
+npm i prop-types react-redux react-router-dom redux redux-logger redux-promise react-addons-test-utils enzyme-adapter-react-16 react-test-renderer
+
+npm i -g json-server
+
+json-server --watch db.json --port 8900
