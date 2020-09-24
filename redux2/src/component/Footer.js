@@ -11,4 +11,4 @@ const Footer = () => {
     )
 }
 
-export default Header;
+export default Footer;
