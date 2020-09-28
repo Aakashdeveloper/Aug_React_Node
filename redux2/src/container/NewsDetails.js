@@ -2,6 +2,7 @@ import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import PropTypes from 'prop-types';
 import {SelectedNews,ClearSelectedNews} from '../actions';
+import LikeCounter from './LikeCounter';
 
 
 class NewsDetails extends Component {
@@ -36,7 +37,11 @@ class NewsDetails extends Component {
                                 {data.body}
                             </div>
                             <div>
-                               
+                               <LikeCounter
+                                articleId={data.id}
+                                likes={data.likes[0]}
+                                dislikes={data.likes[1]}
+                               />
                             </div>
                         </div>
                     </div>
@@ -60,6 +65,7 @@ class NewsDetails extends Component {
 
 
 function mapStateToProps(state){
+    console.log(state)
     return{
         articleDetails:state.article
     }
