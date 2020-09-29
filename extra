@@ -4,22 +4,17 @@ React = 3
 Basic React Native=1
 React_hooks -1
 React-Redux =2
+React-JWT(Login Logut)-1
+Mock API
+json-server
 //////////////////
 React-GarphQL 1
-React-JWT(Login Logut)-1
 React-Saga -1
 Depolyment
 -> MERN
-
 Testing
 -> Docker
 -> Nginx
-
-npm i enzyme-adapter-react-16  react-addons-test-utild react-test-renderer
-
-Mock API
-json-server
-
 Github
 
 --------NOT--------------
