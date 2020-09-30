@@ -29,7 +29,7 @@ class RegisterComponent extends Component{
             "email":this.state.email,
             "password":this.state.password
         }
-        fetch(pBooking,{
+        fetch(registerUrl,{
             method:'POST',
             headers:{
                 'Accept':'application/json',

@@ -7,15 +7,18 @@ React-Redux =2
 React-JWT(Login Logut)-1
 Mock API
 json-server
-//////////////////
-React-GarphQL 1
-React-Saga -1
 Depolyment
 -> MERN
-Testing
+-> Heroku
+//////////////////
+React-GarphQL 1
 -> Docker
 -> Nginx
 Github
+
+Testing
+React-Saga -1
+
 
 --------NOT--------------
 API
@@ -46,3 +49,6 @@ json-server --watch db.json --port 8900
 (GET) => http://localhost:5000/api/auth/userinfo
 (Header) => {'x-access-token':'token value from login'}
 (response) => {userinfo}
+
+
+npm run build

@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-const registerUrl="http://localhost:5000/api/auth/login"
+const loginUrl="http://localhost:5000/api/auth/login"
 
 class LoginComponent extends Component{
     constructor(){
@@ -24,7 +24,7 @@ class LoginComponent extends Component{
             "email":this.state.email,
             "password":this.state.password
         }
-        fetch(pBooking,{
+        fetch(loginUrl,{
             method:'POST',
             headers:{
                 'Accept':'application/json',
@@ -32,15 +32,19 @@ class LoginComponent extends Component{
             },
             body:JSON.stringify(data)
         })
-        .then((this.props.history.push('/profile')))
+        .then((res) => res.json())
+        .then((data) => {
+            sessionStorage.setItem('_ltk',data.token)
+            this.props.history.push('/profile')
+        })
     }
 
     render(){
         return(
             <div className="container">
-                <div className="panel panel-primary">
+                <div className="panel panel-danger">
                     <div className="panel-heading">
-                        <h4>Register</h4>
+                        <h4>Login</h4>
                     </div>
                     <div className="panel-body">
                         <div className="form-group">

@@ -11,7 +11,16 @@ class Profile extends Component {
         }
     }
 
+    handleLogout=()=>{
+        sessionStorage.removeItem('_ltk');
+        this.props.history.push('/login')
+    }
+
     render(){
+        if(sessionStorage.getItem('_ltk') === null){
+            this.props.history.push('/login')
+        }
+        sessionStorage.setItem('_rtk',this.state.user.role)
         return(
             <div className="panel panel-info">
                 <div className="panel-heading">
@@ -22,10 +31,26 @@ class Profile extends Component {
                     <h2>Your email id is {this.state.user.email}</h2>
                     <h2>Your role is {this.state.user.role}</h2>
                 </div>
-                <button className="btn btn-danger">Logout</button>
+                <button className="btn btn-danger"
+                onClick={this.handleLogout}>Logout</button>
             </div>
 
         )
+    }
+
+    componentDidMount(){
+        fetch(url,{
+            method:'GET',
+            headers:{
+                'x-access-token': sessionStorage.getItem('_ltk')
+            }
+        })
+        .then((res) => res.json())
+        .then((data) => {
+            this.setState({
+                user:data
+            })
+        })
     }
 }
 export default Profile;

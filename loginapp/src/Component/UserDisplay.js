@@ -1,9 +1,9 @@
 import React from 'react';
 
 const UserDisplay = (props) => {
-    const renderUser = ({userData}) => {
-        if(userData){
-            return userData.map((item,index) => {
+    const renderUser = ({userdata}) => {
+        if(userdata){
+            return userdata.map((item,index) => {
                 return(
                     <tr>
                         <td>{index}</td>
