@@ -1,17 +1,51 @@
-import React from 'react';
+import React,{Component} from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ApolloClient from 'apollo-boost';
+import gql from 'graphql-tag';
+import {Query} from 'react-apollo';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const client = new ApolloClient({
+  uri:`http://localhost:8600/graphql`
+})
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const GET_PRODUCTS=gql`
+  query product($id:Int){
+    product(id:$id){
+      name,
+      rating_text
+    }
+  }
+`
+
+class ProductDetails extends Component{
+    constructor(){
+      super()
+
+      this.state={
+        id:3
+      }
+    }
+
+    render(){
+      return(
+        <div>
+          <center>
+            <Query query={GET_PRODUCTS} client={client} variables={{id:this.state.id}}>
+              {({loading,err,data})=>{
+                if(loading) return <p>Loading.....</p>
+                if(err) return <p>Error....</p>
+                return(
+                  <div>
+                    <h2>{data.product.name}</h2>
+                    <h2>{data.product.rating_text}</h2>
+                  </div>
+                )
+              }}
+            </Query>
+          </center>
+        </div>
+      )
+    }
+}
+
+ReactDOM.render(<ProductDetails/>,document.getElementById('root'))

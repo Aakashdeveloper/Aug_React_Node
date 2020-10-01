@@ -10,12 +10,11 @@ json-server
 Depolyment
 -> MERN
 -> Heroku
-//////////////////
 React-GarphQL 1
 -> Docker
--> Nginx
 Github
-
+//////////////////
+-> Nginx
 Testing
 React-Saga -1
 
@@ -52,3 +51,20 @@ json-server --watch db.json --port 8900
 
 
 npm run build
+npm i graphql graphql-tag apollo-graphql react-apollo apolllo-boost
+
+
+git clone https://github.com/Aakashdeveloper/TestRepo
+git push
+git pull
+
+git init
+git add .
+git commit -m "first commit"
+git remote add origin https://github.com/Aakashdeveloper/imrepo.git
+git push -u origin master
+
+
+git add .
+git commit -m "first commit"
+git push
